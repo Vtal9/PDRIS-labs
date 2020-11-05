@@ -1,0 +1,5 @@
+Authorisation\AuthorisationManager.class
+edu\phystech\servlet\LoginServlet.class
+edu\phystech\servlet\MainServlet.class
+Authorisation\MapUserToPassword.class
+edu\phystech\servlet\RegisterServlet.class
