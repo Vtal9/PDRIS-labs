@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static Authorisation.AuthorisationManager.createUser;
-import static Authorisation.AuthorisationManager.userIsExist;
+import static authorisation.AuthorisationManager.createUser;
+import static authorisation.AuthorisationManager.userIsExist;
 
 public class RegisterServlet extends HttpServlet {
 
@@ -28,7 +28,15 @@ public class RegisterServlet extends HttpServlet {
 
         String user = req.getParameter("userName");
         String pass = req.getParameter("userPass");
-        if (user.equals("admin")) {
+
+        if(user == null || pass == null){
+            write.println("<h1>Wrong username or password!</h1>");
+            RequestDispatcher rd = servletContext.getRequestDispatcher("/formRegister.html");
+            rd.include(req, resp);
+            return;
+        }
+
+        if ("admin".equals(user)) {
             write.println("<h1>You can't create user admin</h1>");
             RequestDispatcher rd = servletContext.getRequestDispatcher("/formRegister.html");
             rd.include(req, resp);

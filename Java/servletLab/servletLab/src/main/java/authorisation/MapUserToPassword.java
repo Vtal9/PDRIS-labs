@@ -1,4 +1,4 @@
-package Authorisation;
+package authorisation;
 
 import java.util.HashMap;
 import java.util.Map;
